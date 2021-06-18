@@ -1,0 +1,72 @@
+@import '../../index.scss';
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50px;
+    width: 100vw;
+    font-size: 18px;
+    padding: 0 24px;
+    background: $bg;
+    * { color: $light; }
+
+    &__item {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 16px;
+        > span { cursor: pointer; }
+        > a, a:visited { color: $light }
+        > a:hover { color: $bg-light; }
+    }
+
+    &__sublist {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100vw;
+        max-height: calc(100vh - 142px);
+        position: absolute;
+        top: 100%;
+        left: -40px;
+        margin-top: 12px;
+        padding: 0 24px;
+        overflow: scroll;
+        background: $light;
+        * { color: $dark; }
+        &__item {
+            width: 26vw;
+            min-height: 50vh;
+            font-size: 20px;
+            margin: 16px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            > span {
+                width: 26vw;
+                height: 26vw;
+                background-position: center;
+                background-size: cover;
+                border-radius: 8px;
+            }
+            > a { margin: 16px 0 8px; }
+            > a, a:visited { color: $dark }
+            > a:hover { color: $semitone; }
+
+            &__links {
+                display: flex;
+                flex-direction: column;
+                max-height: 100%;
+                
+                > a {
+                    font-size: 18px;
+                    margin: 4px 0px;
+                    color: $semitone;
+                }
+            }
+        }
+    }
+}

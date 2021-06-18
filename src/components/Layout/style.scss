@@ -1,0 +1,88 @@
+@import '../../index.scss';
+
+.layout {
+    height: 200vh;
+    align-items: center;
+    padding-top: 148px;
+    background: $light;
+    overflow: scroll;
+    transition: all .3s ease;
+
+    &::-webkit-scrollbar { width: 0; background: transparent; }
+    &::-webkit-scrollbar-thumb { border-radius: 2px; background: transparent; }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    background: $light;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    padding: 0 40px;
+    overflow: hidden;
+    transition: all .3s ease;
+
+    &__logo {
+        width: min-content;
+        line-height: 20px;
+        font-size: 25px;
+        * { color: $dark; }
+        span {
+            font-weight: 600;
+        }
+    }
+    &__search {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0 8px;
+        width: 100%;
+        max-width: 500px;
+        
+        &__input {
+            height: 40px;
+            width: 100%;
+            padding: 12px 36px 12px 20px;
+            border: 2px solid $bg-light;
+            border-radius: 8px;
+            background: transparent;
+            position: relative;
+            font-size: 16px;
+            font-weight: 500;
+            color: $dark;
+
+            &:focus {
+                background: $bg-light;
+            }
+        }
+
+        &__btn {
+            position: absolute;
+            right: 24px;
+            background: transparent;
+            img {
+                max-width: 24px;
+                padding: 2px;
+            }
+        }
+    }
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        &__item {
+            margin-left: 16px;
+            img {
+                max-width: 24px;
+                padding: 2px;
+            }
+        }
+    }
+}
