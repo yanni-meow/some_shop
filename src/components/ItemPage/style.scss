@@ -1,0 +1,29 @@
+.item {
+    width: 100%;
+
+    &__nav {
+        width: 100%;
+    }
+
+    &__box {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+
+        &__img {
+            width: 50%;
+        }
+
+        &__sale {
+            width: 40%;
+        }
+
+        &__title {
+            width: 50%;
+        }
+
+        &__price {
+            width: 50%;
+        }
+    }
+}

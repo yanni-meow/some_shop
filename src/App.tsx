@@ -4,8 +4,10 @@ import Layout from './components/Layout';
 import CatalogPage from './components/CatalogPage';
 import HomePage from './components/HomePage';
 
+
 const App = () => { // props:Props
   // const { history } = props
+
   return (
     <Layout>
         <Switch>
@@ -15,8 +17,13 @@ const App = () => { // props:Props
             layoutRoutes={routerList.withLayout}
             />}
             <Route component={NotFound} /> */}
-            <Route exact path="/" component={HomePage}/>
+
+
             <Route path="/catalog" component={CatalogPage} />
+            {/* <Route exact path="/" component={CatalogPage}/> */}
+            <Route exact path="/" component={HomePage}/>
+
+
             {/* <Redirect from='' to='/'/> */}
         </Switch>
     </Layout>

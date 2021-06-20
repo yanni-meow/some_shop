@@ -5,6 +5,7 @@ interface CssExports {
   'catalog__list': string;
   'catalog__list__item': string;
   'catalog__list__item__img': string;
+  'catalog__list__item__oldprice': string;
   'catalog__list__item__price': string;
   'catalog__list__item__sale': string;
   'catalog__list__item__title': string;

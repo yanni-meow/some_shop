@@ -8,7 +8,7 @@ import style from './style.scss';
 type MenuItem = {
   text: string,
   id : string,
-  link?: string
+  link: string
 }
 
 const menu : Array<MenuItem> = [
@@ -96,6 +96,11 @@ const Menu = () => {
   })
   const [isOpen, setIsOpen] = useState(isopen)
 
+  // const url = new URL(window.location.href);
+  // const addParameterToURL = (category: string) => {
+  //   url.searchParams.set('c', category);
+  // }
+
   const renderMenuButtons = (menu : Array<MenuItem>) => {
     const groups: any = [];
     for (const item of menu) {
@@ -108,22 +113,29 @@ const Menu = () => {
     return groups;
   };
 
-  const renderCatalog = (catalog : any) => {
+  const renderCatalogMenu = (catalog : any) => {
     const btns: any = [];
     for (const btn of catalog.subItems) {
       const list: any = [];
       btn.list.forEach((el: any) => {
         list.push(
-          <Link to={`${catalog.link}${btn.link}/${el.replace(/ /g,"_")}`}>{el}</Link>)
+          <Link 
+            to={`${catalog.link}?с=${el.replace(/ /g,"_")}`}
+          >{el}</Link>)
       })
 
         btns.push(
           <div className={style.menu__sublist__item}>
             <span style={{ backgroundImage: `url(${btn.icon})`}}></span>
-            <Link to={`${catalog.link}${btn.link}`}>{btn.text}</Link>
-            <div className={style.menu__sublist__item__links}>
-              {list}
-            </div>
+            { list.length ? 
+              <React.Fragment>
+                <p>{btn.text}</p>
+                <div className={style.menu__sublist__item__links}>
+                  {list}
+                </div>
+              </React.Fragment> : 
+              <Link to={`${catalog.link}${btn.link}`}>{btn.text}</Link>
+            }
           </div>
         );
     }
@@ -142,19 +154,19 @@ const Menu = () => {
   }
   return (
     <nav className={style.menu}>
-      {renderCatalog(catalog)}
+      {renderCatalogMenu(catalog)}
       {renderMenuButtons(menu)}
     </nav>
   );
 };
 
-// export default Menu;
+export default Menu;
 
-const mapStateToProps = (store: rootState) => {
-  const { currCatalog } = store.catalogReducer;
-  return {
-    currCatalog
-  };
-};
+// const mapStateToProps = (store: rootState) => {
+//   const { currCatalog } = store.catalogReducer;
+//   return {
+//     currCatalog
+//   };
+// };
 
-export default connect(mapStateToProps)(Menu);
+// export default connect(mapStateToProps)(Menu);
